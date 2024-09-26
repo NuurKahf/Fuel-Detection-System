@@ -23,6 +23,15 @@ Komponen :
 4. LCD Display: (opsional) untuk menampilkan informasi.
 5. Kabel dan Breadboard: Untuk penyambungan komponen.
 
+motor-fuel-sensor/
+│
+├── README.md
+├── main.ino           # Kode untuk Arduino
+├── main.py            # Kode untuk Raspberry Pi
+├── sensor.py          # Modul untuk membaca sensor
+└── requirements.txt    # Daftar dependensi (untuk Raspberry Pi)
+
+
 Instalasi :
 1. Sambungkan sensor level bensin ke mikrokontroler.
 2. Hubungkan buzzer ke pin output pada mikrokontroler.
