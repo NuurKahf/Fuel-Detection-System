@@ -29,32 +29,32 @@ Proyek ini adalah sistem sensor untuk motor yang mengukur level bensin dan membe
 3. (Opsional) Sambungkan LCD Display untuk menampilkan informasi.
 4. Upload codingan ke mikrokontroler.
 
-#include <Arduino.h>
+        #include <Arduino.h>
 
-    const int sensorPin = A0; // Pin sensor level bensin
-    const int buzzerPin = 9;   // Pin buzzer
-    const float fuelConsumption = 0.05; // Konsumsi bahan bakar per km
+        const int sensorPin = A0; // Pin sensor level bensin
+        const int buzzerPin = 9;   // Pin buzzer
+        const float fuelConsumption = 0.05; // Konsumsi bahan bakar per km
 
-    void setup() {
-    pinMode(buzzerPin, OUTPUT);
-    Serial.begin(9600);
-    }
+        void setup() {
+        pinMode(buzzerPin, OUTPUT);
+        Serial.begin(9600);
+        }
 
-    void loop() {
-    int sensorValue = analogRead(sensorPin);
-    float fuelLevel = map(sensorValue, 0, 1023, 0, 100); // Konversi ke persen
+        void loop() {
+        int sensorValue = analogRead(sensorPin);
+        float fuelLevel = map(sensorValue, 0, 1023, 0, 100); // Konversi ke persen
 
-    if (fuelLevel < 10) { // Batas minimal bensin
-    digitalWrite(buzzerPin, HIGH); // Aktifkan buzzer
-    Serial.println("Bensin hampir habis!");
-    } else {
-    digitalWrite(buzzerPin, LOW); // Nonaktifkan buzzer
-    }
+        if (fuelLevel < 10) { // Batas minimal bensin
+        digitalWrite(buzzerPin, HIGH); // Aktifkan buzzer
+        Serial.println("Bensin hampir habis!");
+        } else {
+        digitalWrite(buzzerPin, LOW); // Nonaktifkan buzzer
+       }
 
-    float remainingDistance = (fuelLevel / 100) * (1 / fuelConsumption) * 100; // Jarak yang bisa ditempuh
-    Serial.print("Jarak sisa: ");
-    Serial.print(remainingDistance);
-    Serial.println(" km");
+        float remainingDistance = (fuelLevel / 100) * (1 / fuelConsumption) * 100; // Jarak yang bisa ditempuh
+        Serial.print("Jarak sisa: ");
+        Serial.print(remainingDistance);
+        Serial.println(" km");
 
-    delay(1000); // Pembacaan setiap detik
-    }
+        delay(1000); // Pembacaan setiap detik
+        }
