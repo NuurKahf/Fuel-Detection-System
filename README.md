@@ -6,7 +6,7 @@ NIM : 2402905
 
 Tim : 5 spaCy
 
-#Pendahuluan :
+# Pendahuluan :
 
 Selamat datang di proyek Sensor Bensin Monitor! Proyek ini dirancang untuk membantu pengendara motor memantau tingkat bensin secara real-time dan memberikan peringatan suara saat bensin hampir habis. Selain itu, sistem ini juga dapat memperkirakan jarak yang dapat ditempuh dengan bensin yang tersisa, sehingga pengguna dapat merencanakan perjalanan dengan lebih baik dan menghindari kehabisan bahan bakar di jalan. Dalam pengembangan proyek ini, kami menggunakan sensor bahan bakar yang terhubung dengan mikrokontroler untuk mengukur level bensin di tangki. Data yang diperoleh kemudian diproses untuk memberikan notifikasi visual dan audio ketika tingkat bensin menurun di bawah ambang batas tertentu. Dengan informasi jarak yang dapat ditempuh, pengendara dapat lebih tenang saat berkendara, mengetahui kapan dan di mana mereka perlu mengisi ulang bensin.
 
