@@ -6,12 +6,6 @@ NIM : 2402905
 
 Tim : 5 spaCy
 
-# Daftar Isi :
--[Deskripsi]
--[Fitur]
--[Komponen]
--[Instalasi]
-
 # Deskripsi :
 
 Proyek ini adalah sistem sensor untuk motor yang mengukur level bensin dan memberikan peringatan suara saat bensin hampir habis, karena banyak dari kita yang kurang aware ketika peringatan indikator bensin hanya berkedip, dan akhirnya kita kehabisan bensin di jalan. Selain itu, sistem ini juga memperkirakan jarak yang bisa ditempuh dengan sisa bensin yang ada karena kita tidak tahu sisa bensin kita itu kuat sampai jarak berapa lagi. 
@@ -34,3 +28,33 @@ Proyek ini adalah sistem sensor untuk motor yang mengukur level bensin dan membe
 2. Hubungkan buzzer ke pin output pada mikrokontroler.
 3. (Opsional) Sambungkan LCD Display untuk menampilkan informasi.
 4. Upload codingan ke mikrokontroler.
+
+#include <Arduino.h>
+
+    const int sensorPin = A0; // Pin sensor level bensin
+    const int buzzerPin = 9;   // Pin buzzer
+    const float fuelConsumption = 0.05; // Konsumsi bahan bakar per km
+
+    void setup() {
+    pinMode(buzzerPin, OUTPUT);
+    Serial.begin(9600);
+    }
+
+    void loop() {
+    int sensorValue = analogRead(sensorPin);
+    float fuelLevel = map(sensorValue, 0, 1023, 0, 100); // Konversi ke persen
+
+    if (fuelLevel < 10) { // Batas minimal bensin
+    digitalWrite(buzzerPin, HIGH); // Aktifkan buzzer
+    Serial.println("Bensin hampir habis!");
+    } else {
+    digitalWrite(buzzerPin, LOW); // Nonaktifkan buzzer
+    }
+
+    float remainingDistance = (fuelLevel / 100) * (1 / fuelConsumption) * 100; // Jarak yang bisa ditempuh
+    Serial.print("Jarak sisa: ");
+    Serial.print(remainingDistance);
+    Serial.println(" km");
+
+    delay(1000); // Pembacaan setiap detik
+    }
