@@ -1,5 +1,9 @@
 # Fuel-Detection-System
 
+Nama : Muhammad Nur Kahfi
+NIM : 2402905
+Tim : 5 spaCy
+
 Deskripsi :
 
 Proyek ini adalah sistem sensor untuk motor yang mengukur level bensin dan memberikan peringatan suara saat bensin hampir habis, karena banyak dari kita yang kurang aware ketika peringatan indikator bensin hanya berkedip, dan akhirnya kita kehabisan bensin di jalan. Selain itu, sistem ini juga memperkirakan jarak yang bisa ditempuh dengan sisa bensin yang ada karena kita tidak tahu sisa bensin kita itu kuat sampai jarak berapa lagi. 
